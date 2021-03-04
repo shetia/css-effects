@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>带有火焰动画效果的飞行火箭</title>
+  <style>
+   *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .scene{
+      position:relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      background: #01070a;
+      align-items: center;
+      transition: all 0.2s;
+    }
+    .rocket{
+      position: relative;
+      animation: animate 0.2s ease infinite;
+    }
+    @keyframes animate{
+      0%, 100%{
+        transform: translateY(-2px);
+      }
+      50%{
+        transform: translateY(2px);
+      }
+    }
+    .rocket::before{
+      content: '';
+      position:absolute;
+      bottom: -200px;
+      left: 50%;
+      transform:translateX(-50%);
+      width: 8px;
+      height: 200px;
+      background: linear-gradient(to bottom,#00d0ff, transparent);
+    }
+    .rocket::after{
+      content: '';
+      position:absolute;
+      bottom: -200px;
+      left: 50%;
+      transform:translateX(-50%);
+      width: 8px;
+      height: 200px;
+      background: linear-gradient(#00d0ff, transparent);
+      filter: blur(20px);
+    }
+    .scene i{
+      position: absolute;
+      background: rgba(255,255,255, 0.5);
+      top: -250px;
+      animation:animateStars linear infinite;
+    }
+    @keyframes animateStars {
+      0%{
+        transform:translateY(0);
+      }
+      100%{
+        transform:translateY(200vh);
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="scene">
+  <div class="rocket">
+    <svg t="1614837001881" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6801" data-spm-anchor-id="a313x.7781069.0.i3" width="128" height="128"><path d="M512 843.2c-36.2 0-66.4-13.6-85.8-21.8-10.8-4.6-22.6 3.6-21.8 15.2l7 102c0.4 6.2 7.6 9.4 12.6 5.6l29-22c3.6-2.8 9-1.8 11.4 2l41 64.2c3 4.8 10.2 4.8 13.2 0l41-64.2c2.4-3.8 7.8-4.8 11.4-2l29 22c5 3.8 12.2 0.6 12.6-5.6l7-102c0.8-11.6-11-20-21.8-15.2-19.6 8.2-49.6 21.8-85.8 21.8z" p-id="6802" data-spm-anchor-id="a313x.7781069.0.i1" class="selected" fill="#ffffff"></path><path d="M795.4 586.2l-96-98.2c0-316-186.4-456-186.4-456s-188.2 140-188.2 456l-96 98.2c-3.6 3.6-5.2 9-4.4 14.2L261.2 824c1.8 11.4 14.2 17 23.6 10.8l134.2-90.8s41.4 40 94.2 40c52.8 0 92.2-40 92.2-40l134.2 90.8c9.2 6.2 21.6 0.6 23.6-10.8l37-223.8c0.4-5.2-1.2-10.4-4.8-14zM513 384c-34 0-61.4-28.6-61.4-64s27.6-64 61.4-64c34 0 61.4 28.6 61.4 64s-27.4 64-61.4 64z" p-id="6803" data-spm-anchor-id="a313x.7781069.0.i0" class="selected" fill="#ffffff"></path></svg>
+  </div>
+</div>
+</body>
+</html>
+<script>
+  function stars () {
+    let count = 100
+    let scene = document.querySelector('.scene')
+    let i = 0
+    while (i++ < count) {
+      let star = document.createElement('i')
+      let x = Math.floor(Math.random() * window.innerWidth)
+      let duration = Math.random() * 1
+      let h = Math.random() * 100
+      star.style.left = x + 'px'
+      star.style.width = 1 + 'px'
+      star.style.height = 50 + h + 'px'
+      star.style.animationDuration = duration + 's'
+      scene.appendChild(star)
+    }
+  }
+  stars()
+</script>

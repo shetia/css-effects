@@ -53,14 +53,14 @@
       align-items: center;
       background: rgba(255,255,255, 0.05);
       box-shadow: 0 15px 35px rgba(0,0,0, 0.5);
-      backdrop-filter: blur(15px);
+      backdrop-filter: blur(15px); /* 兼容goole76*/
       z-index: 10;
       border-radius: 10px;
     }
     .percent{
       position: relative;
-      width: 150px;
-      height: 150px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       z-index: 100;
     }
@@ -120,8 +120,10 @@
     }
     svg{
       position: relative;
-      width: 150px;
-      height: 150px;
+      width: 200px;
+      height: 200px;
+      cursor:pointer;
+      z-index: 999;
     }
     svg circle{
       width: 100%;
@@ -132,11 +134,15 @@
       transform-origin: center center;
       transform:  rotate(-90deg) translate(5px,5px);
       stroke-linecap: round;
+      
     }
     svg circle:nth-child(2){
       stroke: #fff;
       stroke-dasharray: 440px;
       stroke-dashoffset: calc(440px - (440px * var(--i) / 100));
+    }
+    svg circle:nth-child(2):hover{
+      stroke-width: 15;
     }
   </style>
 </head>
@@ -148,8 +154,8 @@
           <div>
             <div class="percent" >
               <svg style="--i: 90">
-                <circle cx="70" cy="70" r="70"></circle>
-                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="100" cy="100" r="70"></circle>
+                <circle cx="100" cy="100" r="70"></circle>
               </svg>
               <div class="number">
                 <h2>90<span>%</span></h2>
@@ -164,8 +170,8 @@
           <div>
             <div class="percent" >
               <svg style="--i: 82">
-                <circle cx="70" cy="70" r="70"></circle>
-                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="100" cy="100" r="70"></circle>
+                <circle cx="100" cy="100" r="70"></circle>
               </svg>
               <div class="number">
                 <h2>82<span>%</span></h2>
@@ -180,8 +186,8 @@
           <div>
             <div class="percent" >
               <svg style="--i: 65">
-                <circle cx="70" cy="70" r="70"></circle>
-                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="100" cy="100" r="70"></circle>
+                <circle cx="100" cy="100" r="70"></circle>
               </svg>
               <div class="number">
                 <h2>65<span>%</span></h2>

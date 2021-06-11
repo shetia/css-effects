@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>纯CSS实现5星技能等级效果</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background:#0a2b3c;
+    }
+    .container{
+      position:relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 30px;
+      box-shadow: -1px -1px 2px rgba(255,255,255, 0.25),
+      inset -1px -1px 5px rgba(255,255,255, 0.25),
+      8px 30px 30px rgba(0,0,0, 0.4),
+      inset -2px -2px 5px rgba(0,0,0, 0.3);
+    }
+    .container h2{
+      margin-bottom:10px;
+      font-weight: 500;
+      color: #1f9cff;
+    }
+    .container .skills{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0;
+      padding-right: 10px;
+      box-shadow: -1px -1px 2px rgba(255,255,255, 0.25),
+      inset -1px -1px 5px rgba(255,255,255, 0.25),
+      8px 30px 30px rgba(0,0,0, 0.4),
+      inset -2px -2px 5px rgba(0,0,0, 0.3);
+      transition: all 0.5s;
+    }
+    .container:hover .skills{
+      filter:blur(5px);
+      opacity: 0.2;
+    }
+    .container .skills:hover{
+      filter:blur(0px);
+      opacity: 1;
+    }
+    .container .skills h3{
+      min-width: 180px;
+      text-align: right;
+      padding-right: 20px;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+    .container .skills .rating{
+      position:relative;
+      display:flex;
+      margin: 10px 0;
+      flex-direction: row-reverse;
+    }
+    .container .skills .rating input{
+      position: relative;
+      width:  20px;
+      height: 40px;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      overflow: hidden;
+    }
+    .container .skills .rating input::before{
+      content: '★';
+      font-size: 34px;
+      position:absolute;
+      left: 6px;
+      color: #030b0f;
+      font-family: -webkit-pictograph;
+    }
+    .container .skills .rating input:nth-child(2n+1)::before{
+      right: 6px;
+      left:initial;
+    }
+    .container .skills .rating input:hover ~ input:before,
+    .container .skills .rating input:hover::before,
+    .container .skills .rating input:checked ~ input:before,
+    .container .skills .rating input:checked::before{
+      color: #1f9cff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>5 Star Skills Rating Bar</h2>
+    <div class="skills">
+      <h3 class="name">Html</h3>
+      <div class="rating">
+        <input type="radio" name="html">
+        <input type="radio" name="html">
+        <input type="radio" name="html">
+        <input type="radio" name="html">
+        <input type="radio" name="html">
+        <input type="radio" name="html">
+        <input type="radio" name="html">
+        <input type="radio" name="html">
+        <input type="radio" name="html">
+        <input type="radio" name="html">
+      </div>
+    </div>
+    <div class="skills">
+      <h3 class="name">Css</h3>
+      <div class="rating">
+        <input type="radio" name="css">
+        <input type="radio" name="css">
+        <input type="radio" name="css">
+        <input type="radio" name="css">
+        <input type="radio" name="css">
+        <input type="radio" name="css">
+        <input type="radio" name="css">
+        <input type="radio" name="css">
+        <input type="radio" name="css">
+        <input type="radio" name="css">
+      </div>
+    </div>
+    <div class="skills">
+      <h3 class="name">Javascript</h3>
+      <div class="rating">
+        <input type="radio" name="Javascript">
+        <input type="radio" name="Javascript">
+        <input type="radio" name="Javascript">
+        <input type="radio" name="Javascript">
+        <input type="radio" name="Javascript">
+        <input type="radio" name="Javascript">
+        <input type="radio" name="Javascript">
+        <input type="radio" name="Javascript">
+        <input type="radio" name="Javascript">
+        <input type="radio" name="Javascript">
+      </div>
+    </div>
+    <div class="skills">
+      <h3 class="name">Photoshop</h3>
+      <div class="rating">
+        <input type="radio" name="Photoshop">
+        <input type="radio" name="Photoshop">
+        <input type="radio" name="Photoshop">
+        <input type="radio" name="Photoshop">
+        <input type="radio" name="Photoshop">
+        <input type="radio" name="Photoshop">
+        <input type="radio" name="Photoshop">
+        <input type="radio" name="Photoshop">
+        <input type="radio" name="Photoshop">
+        <input type="radio" name="Photoshop">
+      </div>
+    </div>
+    <div class="skills">
+      <h3 class="name">Illustrator</h3>
+      <div class="rating">
+        <input type="radio" name="Illustrator">
+        <input type="radio" name="Illustrator">
+        <input type="radio" name="Illustrator">
+        <input type="radio" name="Illustrator">
+        <input type="radio" name="Illustrator">
+        <input type="radio" name="Illustrator">
+        <input type="radio" name="Illustrator">
+        <input type="radio" name="Illustrator">
+        <input type="radio" name="Illustrator">
+        <input type="radio" name="Illustrator">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
